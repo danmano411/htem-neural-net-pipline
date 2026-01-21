@@ -26,11 +26,11 @@ class Library:
 
     @staticmethod
     def search_by_composition(only=[],not_including=[],any_of=[]):
-        elt_url = 'https://htem-api.nrel.gov/api/samples?element='
+        elt_url = 'https://htem-api.nrel.gov/api/sample_library?element='
         for i in only:
             elt_url = elt_url+str(i)+','
         response = urllib.urlopen(elt_url)
-        data = json.loads(response.read())
+        data = json.loads(response.read().decode())
         ids_list = []
         for i in data:
             elts = str(i['elements'])
@@ -53,22 +53,22 @@ class Library:
 
             
     def properties(self):
-        url = 'https://htem-api.nrel.gov/api/samples/'+str(self.identity)
-        response = urllib.urlopen(url)
-        data = json.loads(response.read())
+        url = 'https://htem-api.nrel.gov/api/sample_library/'+str(self.identity)
+        response = urllib.request.urlopen(url)
+        data = json.loads(response.read().decode())
         df = pd.DataFrame()
         for i in data:
             df[i] = [data[i]]
         return df
 
     def spectra(self,which):
-        url = 'https://htem-api.nrel.gov/api/samples/'+str(self.identity)
+        url = 'https://htem-api.nrel.gov/api/sample_library/'+str(self.identity)
         response = urllib.urlopen(url)
-        data = json.loads(response.read())
-        positions = data['position_ids']
+        data = json.loads(response.read().decode())
+        positions = data['sample_ids']
         df = pd.DataFrame()
         for k in positions:
-            url = 'https://htem-api.nrel.gov/api/positions/'+str(k)
+            url = 'https://htem-api.nrel.gov/api/sample/'+str(k)
             #There is the potential to replace this with mvl_optical or mvl_xrd, 
             #but these seem to be broken at the moment...
             response = urllib.urlopen(url)

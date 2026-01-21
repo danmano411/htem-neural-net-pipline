@@ -1,0 +1,4 @@
+paths:
+  htem_raw_data_root: "/path/to/HTEM Libraries/Raw"
+  htem_filtered_data_root: "/path/to/HTEM Libraries/Filtered"
+

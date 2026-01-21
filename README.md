@@ -1,43 +1,60 @@
-# HTEM DB API Example Notebooks
+# HTEM DB Neural Network Project
 
-This GitHub repository is created for use on the NREL High-Throughput Experimental Materials Database (https://htem.nrel.gov/) API. While the website offers a number of visualization tools for various types of materials tests, an advanced user may desire a more hands-on approach. This repository offers a number of Jupyter notebooks that interact directly with the API in order to demonstrate API functionality and more advanced statistical analysis and graphical visualization. The Jupyter notebooks allow one to read and digest blocks of code while learning more about how various statistical techniques may be applied to this dataset. This repository is currently broken into several Python files and then five Jupyter Notebooks. They are:
+This project aims to construct a curated dataset from the publicly available High Throughput Experimental Materials Database (HTEM DB) and to train a neural network to predict thin-film properties. The project is structured into three main components: (1) notebooks to search, compile, and clean data; (2) development and training of a neural network using the resulting dataset; and (3) a future web-based interface for model access and inference.
 
-### Helper Libraries
+## 1. Notebooks
 
- * library.py: See the "lib" folder. This file contains a class that is designed to query data from the API at the library level (all 44 points).
- * sample.py: See the "lib" folder. This file contains a class that is designed to query data from the API at the sample level (individual points).
+- **1_HTEM_Analysis.ipynb**  
+  Performs an initial survey of the HTEM database and visualizes relevant relationships.
 
-### Example Notebooks
+- **2_Search_Libraries.ipynb**  
+  Identifies libraries containing thickness values, XRD angle measurements, XRF compound data, and valid deposition parameters in order to filter for usable libraries.
 
- * 1_Basic_Queries.ipynb: Gives a brief introduction of how to use the Library and Sample modules to query information at different levels.
- * 2_XRD_Plotting.ipynb: Takes a look at how x-ray diffraction spectra may be easily plotted and how basic peak detection may be implemented.
- * 3_XRF_Plotting.ipynb: Analyzes how data from x-ray fluorescence measurements (including thickness, composition, etc.), heat maps are used to reveal gradients across substrates and other phenomena.
- * 4_Four_Point_Plotting.ipynb: Analyzes data from four-point probe (4PP) measurements, which yields electrical measurements such as sheet resistance, conductivity, etc. Heatmap plots may be made to show how conductivity changes with respect to composition and position.
- * 5_Optical_Plotting.ipynb: Analyzes optical measurements, which includes spectra from near-infrared ranges to ultra-violet ranges. Demonstrates some basic plotting as well as absorption coefficient calculations and basic Tauc plotting.
+- **3_Validate_XRD_Angles.ipynb**  
+  Determines whether libraries and their constituent samples use standardized XRD angle grids and removes outliers.
 
-### How to Use
+- **4_Check_Filtered_Dataset.ipynb**  
+  Confirms that the remaining libraries contain standardized XRD measurements.
 
-To get started, download Anaconda or another distribution of Python. Make sure that pandas, numpy, and scipy are all included in the distribution. One can then clone the repository using the command:
+- **5_Download_Full_Libraries.ipynb**  
+  Downloads the filtered libraries to a local system in order to limit repeated API calls.
 
-```
-git clone https://github.com/NREL/htem-api-examples.git
-cd htem-api-examples
-```
+- **6_Create_Filtered_Dataset.ipynb**  
+  Constructs a flattened dataset from local data by associating deposition parameters, compositional data, and measurement outputs while standardizing cross-library documentation.
 
-The updated repository should then be available.
+- **7_Clean_Dataset_Preliminary.ipynb**  
+  Removes extraneous null values and constant or near-constant columns.
 
-Finally, you can use Jupyter Notebook to view the example notebooks. First, navigate to the directory, then enter:
+- **8_Initial_Data_Analysis.ipynb (Current)**  
+  Performs exploratory data analysis, including identification of strongly correlated and near-constant features, as part of preliminary machine learning assessment.
 
-```
-cd notebooks
-jupyter notebook
-```
+## 2. Neural Network
 
-### Credit
+## 3. Web Interface
 
-This software was developed by Marcus Schwarting (marcus.schwarting@nrel.gov) and Caleb Phillips (caleb.phillips@nrel.gov) to support the Research Data Initiative and High Throughput Experimental Materials Database (HTEM DB) at the National Rewnable Energy Laboratory in Golden, Colorado, USA.
+## Configuration
 
-### License
+This project uses a local configuration file for system-specific paths.
 
-Copyright (c) 2017, National Renewable Energy Laboratory (NREL)
-All rights reserved. See LICENSE for additional information.
+1. Copy `config/config.example.yaml` to `config/config.yaml`
+2. Edit paths in `config/config.yaml` to match your local system
+
+The `config.yaml` file is intentionally ignored by version control.
+
+## Helper Libraries Provided by HTEM
+
+- **library.py** (see the `lib/` folder)  
+  Defines a class for querying HTEM data at the library level (44 samples per library).
+
+- **sample.py** (see the `lib/` folder)  
+  Defines a class for querying HTEM data at the individual sample level.
+
+## Usage Statement
+
+> “Those who choose to utilize the API can download data in full to create their own visualizations and analyses beyond what is available here.”
+
+[HTEM API Documentation](https://htem.nrel.gov/api-docs)
+
+## Credit
+
+The HTEM software was developed by Marcus Schwarting (marcus.schwarting@nrel.gov) and Caleb Phillips (caleb.phillips@nrel.gov) to support the Research Data Initiative and the High Throughput Experimental Materials Database (HTEM DB) at the National Renewable Energy Laboratory (NREL), Golden, Colorado, USA.
