@@ -49,6 +49,8 @@ The `config.yaml` file is intentionally ignored by version control.
 - **sample.py** (see the `lib/` folder)  
   Defines a class for querying HTEM data at the individual sample level.
 
+  Original license by HTEM included within `lib/` folder.
+
 ## Usage Statement
 
 > “Those who choose to utilize the API can download data in full to create their own visualizations and analyses beyond what is available here.”
@@ -58,3 +60,7 @@ The `config.yaml` file is intentionally ignored by version control.
 ## Credit
 
 The HTEM software was developed by Marcus Schwarting (marcus.schwarting@nrel.gov) and Caleb Phillips (caleb.phillips@nrel.gov) to support the Research Data Initiative and the High Throughput Experimental Materials Database (HTEM DB) at the National Renewable Energy Laboratory (NREL), Golden, Colorado, USA.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
