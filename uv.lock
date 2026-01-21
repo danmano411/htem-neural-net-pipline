@@ -484,7 +484,7 @@ wheels = [
 ]
 
 [[package]]
-name = "htem-api-examples"
+name = "htem-neural-net-pipline"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

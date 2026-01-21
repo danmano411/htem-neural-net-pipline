@@ -1,7 +1,7 @@
 [project]
-name = "htem-api-examples"
+name = "htem-neural-net-pipline"
 version = "0.1.0"
-description = "Add your description here"
+description = "This project aims to construct a curated dataset from the publicly available High Throughput Experimental Materials Database (HTEM DB) and to train a neural network to predict thin-film properties."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
