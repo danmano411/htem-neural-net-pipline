@@ -26,7 +26,8 @@ This project aims to construct a curated dataset from the publicly available Hig
   Removes extraneous null values and constant or near-constant columns.
 
 - **8_Initial_Data_Analysis.ipynb (Current)**  
-  Performs exploratory data analysis, including identification of strongly correlated and near-constant features, as part of preliminary machine learning assessment.
+  Exploratory data analysis, including identification of strongly correlated and near-constant features, as part of preliminary neural network assessment.
+  Looked for outliers as well as trends associated with the 'thickness' property.
 
 ## 2. Neural Network
 
