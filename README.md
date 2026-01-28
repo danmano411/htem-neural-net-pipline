@@ -25,9 +25,10 @@ This project aims to construct a curated dataset from the publicly available Hig
 - **7_Clean_Dataset_Preliminary.ipynb**  
   Removes extraneous null values and constant or near-constant columns.
 
-- **8_Initial_Data_Analysis.ipynb (Current)**  
-  Exploratory data analysis, including identification of strongly correlated and near-constant features, as part of preliminary neural network assessment.
-  Looked for outliers as well as trends associated with the 'thickness' property.
+- **8_Exploratory_Data_Analysis.ipynb**  
+  Exploratory data analysis, including identification of strongly correlated features using both pearson and spearman methods, as part of preliminary neural network assessment. 
+  Associated features with the 'thickness' property as chosen target.
+  Eliminated extreme outlier samples and libraries, decreasing total row/sample size from 9644 samples to 9554 samples.
 
 ## 2. Neural Network
 
@@ -39,6 +40,8 @@ This project uses a local configuration file for system-specific paths.
 
 1. Copy `config/config.example.yaml` to `config/config.yaml`
 2. Edit paths in `config/config.yaml` to match your local system
+3. Make sure `uv` is installed, then run `uv sync`
+4. To view notebooks, run `uv run jupyter lab`
 
 The `config.yaml` file is intentionally ignored by version control.
 
