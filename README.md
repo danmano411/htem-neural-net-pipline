@@ -2,7 +2,7 @@
 
 This project aims to construct a curated dataset from the publicly available High Throughput Experimental Materials Database (HTEM DB) and to train a neural network to predict thin-film properties. The project is structured into three main components: (1) notebooks to search, compile, and clean data; (2) development and training of a neural network using the resulting dataset; and (3) a future web-based interface for model access and inference.
 
-## 1. Notebooks (notebooks directory)
+## 1. Notebooks (`notebooks/`)
 
 - **1_HTEM_Analysis.ipynb**  
   Performs an initial survey of the HTEM database and visualizes relevant relationships.
@@ -30,7 +30,7 @@ This project aims to construct a curated dataset from the publicly available Hig
   Associated features with the 'thickness' property as chosen target.
   Eliminated extreme outlier samples and libraries, decreasing total row/sample size from 9644 samples to 9554 samples.
 
-## 2. Neural Network (neuralnet directory)
+## 2. Neural Network (`neuralnet/`)
 
 - **torch_neural_net.py (current)**
   Intial neural network with batch size, epochs, and hidden layers sizes as hyperparameters.
@@ -70,5 +70,6 @@ The `config.yaml` file is intentionally ignored by version control.
 The HTEM software was developed by Marcus Schwarting (marcus.schwarting@nrel.gov) and Caleb Phillips (caleb.phillips@nrel.gov) to support the Research Data Initiative and the High Throughput Experimental Materials Database (HTEM DB) at the National Renewable Energy Laboratory (NREL), Golden, Colorado, USA.
 
 ## License
+
 
 This project is licensed under the MIT License. See the LICENSE file for details.
