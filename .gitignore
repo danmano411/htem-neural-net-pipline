@@ -22,5 +22,8 @@ Thumbs.db
 # Data
 datasets/
 
+# Tests
+tests/
+
 # Config: keep template, ignore local
 config/config.yaml
