@@ -65,7 +65,7 @@ Collected from 2_parameter_grid_neural_net.py.
 
 - **5_35_model_epoch_grid_analysis.ipynb**
 5 model architectures at 7 different epochs.
-Analyzed train vs test and MSE over epochs per architecture
+Analyzed train vs test and MSE over epochs per architecture.
 Collected from 3_epoch_grid_neural_net.py.
 
 - **6_model_loss_over_epochs.ipynb (current)**
