@@ -16,8 +16,10 @@ print(f'Using {device}')
 # ============================ Hyperparameters ========================================
 train_size = 0.8
 batch_size = 128 
-num_epochs = 5000
+num_epochs = 2000
 learning_rate = 0.001
+dropoutP = 0.2 # fraction of values in last layer to be zeroed
+
 hidden_layer_sizes = [2, 4, 8, 16, 16, 8]
 output_size = 1
 
@@ -28,9 +30,6 @@ print("Loading data ...")
 class HTEMDataset(Dataset):
     def __init__(self, dataset_path, transform=None, target_transform=None):
         df = pd.read_parquet(dataset_path)
-
-        # self.X = torch.tensor(df.iloc[:, 3:].to_numpy(dtype=np.float32), dtype=torch.float32)  # [N, D]
-        # self.y = torch.tensor(df.iloc[:, 2].to_numpy(dtype=np.float32), dtype=torch.float32).unsqueeze(1)  # [N, 1]
 
         self.X = torch.from_numpy(df.iloc[:, 3:].to_numpy()).float()
         self.y = torch.from_numpy(df.iloc[:, 2].to_numpy()).unsqueeze(1).float()
@@ -70,7 +69,7 @@ test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 # ========================== Construct Model ======================================
 
 class NeuralNetwork(nn.Module):
-    def __init__(self, input_size, hidden_layer_sizes, output_size):
+    def __init__(self, input_size, hidden_layer_sizes, output_size, dropP):
         super().__init__()
 
         layers = []
@@ -81,6 +80,9 @@ class NeuralNetwork(nn.Module):
             layers.append(nn.ReLU())
             prev_size = size
 
+        # Add dropout on last layer (before output)
+        layers.append(nn.Dropout(p=dropP))
+
         layers.append(nn.Linear(prev_size, output_size))
 
         self.model = nn.Sequential(*layers)   
@@ -90,7 +92,7 @@ class NeuralNetwork(nn.Module):
     
 print("Creating model ...")
 
-model = NeuralNetwork(htem_dataset.X.shape[1], hidden_layer_sizes, output_size).to(device)
+model = NeuralNetwork(htem_dataset.X.shape[1], hidden_layer_sizes, output_size, dropoutP).to(device)
 # print(model)
 total_parameters = sum(p.numel() for p in model.parameters())
 print(f"Model Parameters: {total_parameters}")

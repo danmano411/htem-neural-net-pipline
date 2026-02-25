@@ -32,9 +32,43 @@ This project aims to construct a curated dataset from the publicly available Hig
 
 ## 2. Neural Network (neuralnet directory)
 
-- **torch_neural_net.py (current)**
-  Intial neural network with batch size, epochs, and hidden layers sizes as hyperparameters.
+- **1_torch_neural_net.py**
+  Intial neural network with batch size = 128, train/test = 80/20.
   Linear layers with ReLU. Adam optimizer with MSE criterion.
+
+- **2_parameter_grid_neural_net.py**
+Neural network with variable hidden layers (and total parameter counts).
+Tested a 20% final layer dropout and ran trials with 1D batch normalization.
+
+- **3_epoch_grid_neural_net.py**
+Neural network running different model architectures (hidden layers / parameters) at different epochs.
+Increased batch size to 256.
+
+- **4_architecture_comparisons.py (current)**
+Running 5 differt architectures for 10000 epochs to find loss statistics for 4 different types of models:
+Without dropout or batch normalization, with dropout, with batch normalization, with both.
+Gathered MSE, RMSE, and R2 score every 10 epochs for train and test.
+
+### Analysis Notebooks (analysis notebooks director)
+
+- **1_100, 2_2000, and 3_5000_parameter_grid_analysis.ipynb**  
+Plotted Train, Test, and Model Predictions for different epochs and and different architectures.
+Collected from 2_parameter_grid_neural_net.py.
+
+- **4_2000_epoch_8_trial_parameter_grid_analysis.ipynb**
+Looked at a 2000 epoch run of 8 models per 10 architectures: 
+2 with dropout, 2 with batch normalization, 2 with both, 2 with neither.
+Picked the best run per model per architecture and analyzed the 40 resultant models.
+Collected from 2_parameter_grid_neural_net.py.
+
+- **5_35_model_epoch_grid_analysis.ipynb**
+5 model architectures at 7 different epochs.
+Analyzed train vs test and MSE over epochs per architecture
+Collected from 3_epoch_grid_neural_net.py.
+
+- **6_model_loss_over_epochs.ipynb (current)**
+Analyzed loss curves to make final model.
+Collected from 4_architecture_comparisons.py
 
 ## 3. Web Interface
 
