@@ -51,7 +51,8 @@ Running 5 differt architectures for 10000 epochs to find loss statistics for 4 d
 Without dropout or batch normalization, with dropout, with batch normalization, with both.
 Gathered MSE, RMSE, and R2 score every 10 epochs for train and test.
 
-### Analysis Notebooks (analysis notebooks director)
+### Analysis Notebooks
+`neuralnet/analysis notebooks`
 
 - **1_100, 2_2000, and 3_5000_parameter_grid_analysis.ipynb**  
 Plotted Train, Test, and Model Predictions for different epochs and and different architectures.
@@ -65,7 +66,7 @@ Collected from 2_parameter_grid_neural_net.py.
 
 - **5_35_model_epoch_grid_analysis.ipynb**
 5 model architectures at 7 different epochs.
-Analyzed train vs test and MSE over epochs per architecture
+Analyzed train vs test and MSE over epochs per architecture.
 Collected from 3_epoch_grid_neural_net.py.
 
 - **6_model_loss_over_epochs.ipynb (current)**
