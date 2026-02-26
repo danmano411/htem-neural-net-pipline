@@ -69,7 +69,7 @@ Analyzed train vs test and MSE over epochs per architecture
 Collected from 3_epoch_grid_neural_net.py.
 
 - **6_model_loss_over_epochs.ipynb (current)**
-Analyzed loss curves to make final model.
+Analyzed the MSE and RMSE loss curves to construct final model.
 Collected from 4_architecture_comparisons.py
 
 ## 3. Web Interface
