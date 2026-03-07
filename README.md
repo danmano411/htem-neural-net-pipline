@@ -69,7 +69,7 @@ Collected from 2_parameter_grid_neural_net.py.
 Analyzed train vs test and MSE over epochs per architecture.
 Collected from 3_epoch_grid_neural_net.py.
 
-- **6_model_loss_over_epochs.ipynb (current)**
+- **6_model_loss_over_epochs.ipynb**
 Analyzed the MSE and RMSE loss curves to construct final model.
 Collected from 4_architecture_comparisons.py
 
@@ -110,4 +110,5 @@ The HTEM software was developed by Marcus Schwarting (marcus.schwarting@nrel.gov
 
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
 
