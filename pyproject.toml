@@ -12,7 +12,7 @@ dependencies = [
     "numpy>=2.4.1",
     "pandas>=2.3.3",
     "pyarrow>=23.0.0",
-    "scikit-learn>=1.8.0",
+    "scikit-learn==1.4.2",
     "seaborn>=0.13.2",
     "torch>=2.10.0",
 ]
