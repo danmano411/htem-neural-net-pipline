@@ -25,5 +25,8 @@ datasets/
 # Tests
 tests/
 
+# Tools
+tools/
+
 # Config: keep template, ignore local
 config/config.yaml
